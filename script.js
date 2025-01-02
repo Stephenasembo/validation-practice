@@ -15,7 +15,7 @@ function checkBlanks(event, input){
     event.preventDefault();
   }
 
-  if (input === 'country'){
+  if (input === 'country' || !input){
     if (!country.value.length) {
       let errorMsg = 'Please enter the name of your country';
       displayError('#countryPara', errorMsg);
@@ -23,7 +23,7 @@ function checkBlanks(event, input){
     }
   }
 
-  else if (input === 'email'){
+  if (input === 'email' || !input){
     if (!email.value.length) {
       let errorMsg = 'Please enter your email address';
       displayError('#emailPara', errorMsg);
@@ -31,7 +31,7 @@ function checkBlanks(event, input){
     }
   }
 
-  else if (input === 'zipCode'){
+  if (input === 'zipCode' || !input){
     if (!zipCode.value.length) {
       let errorMsg = 'Please enter your zip code';
       displayError('#zipCodePara', errorMsg);
@@ -39,7 +39,7 @@ function checkBlanks(event, input){
     }
   }
 
-  else if (input === 'password'){
+  if (input === 'password' || !input){
     if (!password.value.length) {
       let errorMsg = 'Please enter your password';
       displayError('#passwordPara', errorMsg);
@@ -47,7 +47,7 @@ function checkBlanks(event, input){
     }
   }
 
-  else if (input === 'passwordConfirmation'){
+  if (input === 'passwordConfirmation' || !input){
     if (!passwordConfirmation.value.length) {
       let errorMsg = 'Please confirm password entered';
       displayError('#passConfirmPara', errorMsg);
