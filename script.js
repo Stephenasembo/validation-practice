@@ -77,6 +77,7 @@ function validateElement(event) {
     case 'email':
       checkBlanks(event = '', 'email');
       if (email.validity.typeMismatch) {
+        let errorMsg = 'Invalid email format. Example: john@gmail.com'
         displayError('#emailPara', errorMsg);
       }
       break;
