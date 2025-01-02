@@ -8,6 +8,13 @@ const submitBtn = document.querySelector('#submit');
 let inputElements = document.querySelectorAll('input');
 inputElements = Array.from(inputElements);
 
+let inputErrorParas = document.querySelectorAll('p');
+inputErrorParas = Array.from(inputErrorParas);
+inputErrorParas.forEach((para) => {
+  let divError = document.createElement('div');
+  para.appendChild(divError);
+})
+
 submitBtn.addEventListener('click', checkBlanks);
 
 function checkBlanks(event, input){
@@ -59,9 +66,8 @@ function checkBlanks(event, input){
 
 function displayError(paragraph, text){
   const para = document.querySelector(paragraph);
-  const divError = document.createElement('div');
+  const divError = para.querySelector('div');
   divError.textContent = text;
-  para.appendChild(divError);
 }
 
 inputElements.forEach((element) => {
