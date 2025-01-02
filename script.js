@@ -51,8 +51,9 @@ function checkBlanks(event, input){
     if (!passwordConfirmation.value.length) {
       let errorMsg = 'Please confirm password entered';
       displayError('#passConfirmPara', errorMsg);
-      return;
+      return true;
     }
+    return false;
   }
 }
 
@@ -67,6 +68,7 @@ inputElements.forEach((element) => {
   element.addEventListener('blur', validateElement);
 })
 
+let userPassword = null;
 function validateElement(event) {
   let input = event.target.id;
   switch (input){
@@ -88,10 +90,24 @@ function validateElement(event) {
       
     case 'password':
       checkBlanks(event = '', 'password');
+      userPassword = password.value;
       break;
 
     case 'passwordConfirmation':
-      checkBlanks(event = '', 'passwordConfirmation');
+      let blank = checkBlanks(event = '', 'passwordConfirmation');
+      if (!blank) {
+        if (userPassword) {
+          if (userPassword === passwordConfirmation.value){
+            console.log(`It's a match`)
+          } else {
+            let errorMsg = `Passwords don't match`;
+            displayError('#passConfirmPara', errorMsg);
+          }
+        } else {
+          let errorMsg = 'Please enter your password first'
+          displayError('#passConfirmPara', errorMsg);
+        }
+      }
       break;      
   }
 }
