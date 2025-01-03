@@ -80,6 +80,9 @@ function validateElement(event) {
   switch (input){
     case 'country':
       checkBlanks(event = '', 'country');
+      if (country.checkValidity()) {
+        removeError('#countryPara');
+      }
       break;
 
     case 'email':
@@ -88,15 +91,24 @@ function validateElement(event) {
         let errorMsg = 'Invalid email format. Example: john@gmail.com'
         displayError('#emailPara', errorMsg);
       }
+      if (email.checkValidity()) {
+        removeError('#emailPara');
+      }
       break;
 
     case 'zipCode':
       checkBlanks(event = '', 'zipCode');
+      if (zipCode.checkValidity()) {
+        removeError('#zipCodePara');
+      }
       break;
       
     case 'password':
       checkBlanks(event = '', 'password');
       userPassword = password.value;
+      if (password.checkValidity()) {
+        removeError('#passwordPara');
+      }
       break;
 
     case 'passwordConfirmation':
@@ -104,7 +116,7 @@ function validateElement(event) {
       if (!blank) {
         if (userPassword) {
           if (userPassword === passwordConfirmation.value){
-            console.log(`It's a match`)
+            removeError('#passConfirmPara');
           } else {
             let errorMsg = `Passwords don't match`;
             displayError('#passConfirmPara', errorMsg);
@@ -114,6 +126,13 @@ function validateElement(event) {
           displayError('#passConfirmPara', errorMsg);
         }
       }
+
       break;      
   }
+}
+
+function removeError(paragraph) {
+  const para = document.querySelector(paragraph);
+  const divError = para.querySelector('div');
+  divError.textContent = '';
 }
