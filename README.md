@@ -17,7 +17,8 @@ This project is part of The Odin Project curriculum where client-side form valid
 - **Email type validation**: Only accept address which are of email type. `Example: user@hostname`
 - **Password matching validation**: Passwords which do not match can not be submitted.
 - **Custom Error Message**: The error message are specific to help the user easily rectify the error.
-- **Display Success Message**: If the user fills the form properly they recieve a message indicating success on form submission
+- **Display Success Message**: If the user fills the form properly they recieve a message indicating success on form submission.
+- **Color code inputs**: Use the color green for valid inputs and red for invalid inputs.
 
 ## Technologies Used
 - **HTML**: Used for structure and form validation attributes.
@@ -25,7 +26,7 @@ This project is part of The Odin Project curriculum where client-side form valid
 - **JavaScript**: Used for client side validation.
 
 ## Live Preview
-- Try out the live preview [here]()
+- Try out the live preview [here](https://stephenasembo.github.io/validation-practice/)
 
 ## Screenshots
 ### Homepage
@@ -43,6 +44,10 @@ This project is part of The Odin Project curriculum where client-side form valid
 ### Wrong Password Confirmation Error
 ![Passwords don't match error](./screenshots/wrong-password.png)
 *Passwords need to match for the form to be submitted*
+
+### Color Coded Inputs
+![Different color depending on validation](./screenshots/color-coded-input.png)
+*Green color for valid input and red for invalid input*
 
 ### Successful Form Submission
 ![Successful Form Submission](./screenshots/successful-form-submission.png)
