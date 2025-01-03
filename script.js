@@ -10,6 +10,7 @@ const body = document.querySelector('body');
 let inputElements = document.querySelectorAll('input');
 inputElements = Array.from(inputElements);
 
+// Add a div to each input will be used to display error message
 let inputErrorParas = document.querySelectorAll('p');
 inputErrorParas = Array.from(inputErrorParas);
 inputErrorParas.forEach((para) => {
@@ -67,6 +68,7 @@ function checkBlanks(event, input){
   }
 }
 
+// Display error if present
 function displayError(paragraph, text){
   const para = document.querySelector(paragraph);
   const divError = para.querySelector('div');
@@ -74,6 +76,7 @@ function displayError(paragraph, text){
   divError.classList.add('active')
 }
 
+// Validate elements when they lose focus
 inputElements.forEach((element) => {
   element.addEventListener('blur', validateElement);
 })
@@ -138,6 +141,7 @@ function validateElement(event) {
   }
 }
 
+// If error is fixed, remove error message
 function removeError(paragraph) {
   const para = document.querySelector(paragraph);
   const divError = para.querySelector('div');
@@ -145,6 +149,7 @@ function removeError(paragraph) {
   divError.classList.remove('active')
 }
 
+// Display success message if form successfully submitted
 function submitForm() {
   if (form.checkValidity()) {
     body.innerHTML = `
