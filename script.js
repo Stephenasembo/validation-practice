@@ -111,6 +111,9 @@ function validateElement(event) {
       if (password.checkValidity()) {
         removeError('#passwordPara');
       }
+      if (userPassword === passwordConfirmation.value) {
+        removeError('#passConfirmPara');
+      }
       break;
 
     case 'passwordConfirmation':
