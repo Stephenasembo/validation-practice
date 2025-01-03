@@ -13,6 +13,7 @@ inputErrorParas = Array.from(inputErrorParas);
 inputErrorParas.forEach((para) => {
   let divError = document.createElement('div');
   para.appendChild(divError);
+  divError.classList.toggle('error');
 })
 
 submitBtn.addEventListener('click', checkBlanks);
@@ -68,6 +69,7 @@ function displayError(paragraph, text){
   const para = document.querySelector(paragraph);
   const divError = para.querySelector('div');
   divError.textContent = text;
+  divError.classList.add('active')
 }
 
 inputElements.forEach((element) => {
@@ -88,7 +90,7 @@ function validateElement(event) {
     case 'email':
       checkBlanks(event = '', 'email');
       if (email.validity.typeMismatch) {
-        let errorMsg = 'Invalid email format. Example: john@gmail.com'
+        let errorMsg = 'Invalid email format. Example: john@gmail.com';
         displayError('#emailPara', errorMsg);
       }
       if (email.checkValidity()) {
@@ -135,4 +137,5 @@ function removeError(paragraph) {
   const para = document.querySelector(paragraph);
   const divError = para.querySelector('div');
   divError.textContent = '';
+  divError.classList.remove('active')
 }

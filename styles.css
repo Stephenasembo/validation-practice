@@ -1,0 +1,27 @@
+form {
+  display: grid;
+  grid-template-rows: repeat(6, max-content);
+  width: min-content;
+}
+
+.error {
+  height: min-content;
+  grid-column: 2/3;
+}
+
+.active {
+  background-color: red;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+p {
+  display: grid;
+  grid-template-rows: min-content min-content;
+  grid-template-columns: max-content 1fr;
+  gap: 2px;
+}
+
+label {
+  width: 165px;
+}
