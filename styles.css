@@ -25,3 +25,11 @@ p {
 label {
   width: 165px;
 }
+
+input:valid:not(#passwordConfirmation) {
+  background-color: #86efac;
+}
+
+.invalid {
+  background-color: #fca5a5;
+}

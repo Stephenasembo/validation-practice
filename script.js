@@ -73,6 +73,8 @@ function displayError(paragraph, text){
   const para = document.querySelector(paragraph);
   const divError = para.querySelector('div');
   divError.textContent = text;
+  let input = para.querySelector('input');
+  input.classList.add('invalid');
   divError.classList.add('active')
 }
 
@@ -116,8 +118,9 @@ function validateElement(event) {
       if (password.checkValidity()) {
         removeError('#passwordPara');
       }
-      if (userPassword === passwordConfirmation.value) {
+      if (userPassword === passwordConfirmation.value && userPassword) {
         removeError('#passConfirmPara');
+        passwordConfirmation.style.backgroundColor = '#86efac';
       }
       break;
 
@@ -127,9 +130,11 @@ function validateElement(event) {
         if (userPassword) {
           if (userPassword === passwordConfirmation.value){
             removeError('#passConfirmPara');
+            passwordConfirmation.style.backgroundColor = '#86efac';
           } else {
             let errorMsg = `Passwords don't match`;
             displayError('#passConfirmPara', errorMsg);
+            passwordConfirmation.style.backgroundColor = '#fca5a5';
           }
         } else {
           let errorMsg = 'Please enter your password first'
