@@ -4,6 +4,8 @@ const zipCode = document.querySelector('#zipCode');
 const password = document.querySelector('#password');
 const passwordConfirmation = document.querySelector('#passwordConfirmation');
 const submitBtn = document.querySelector('#submit');
+const form = document.querySelector('form');
+const body = document.querySelector('body');
 
 let inputElements = document.querySelectorAll('input');
 inputElements = Array.from(inputElements);
@@ -142,3 +144,13 @@ function removeError(paragraph) {
   divError.textContent = '';
   divError.classList.remove('active')
 }
+
+function submitForm() {
+  if (form.checkValidity()) {
+    body.innerHTML = `
+    <p>Successful form submission. Good job!</p>
+    <a href="./index.html">Submit again</a>`
+  }
+}
+
+submitBtn.addEventListener('click', submitForm);
